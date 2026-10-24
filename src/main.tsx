@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { ArrowDown, ArrowRight, ArrowUpRight, BrainCircuit, Check, ChevronDown, Code2, Cpu, Layers3, Menu, PhoneCall, Send, Sparkles, X } from 'lucide-react'
 import './style.css'
+import AskMyAI from './components/AskMyAI'
 
 const email = 'tantragentech@gmail.com'
 const services = [
@@ -123,7 +124,7 @@ function Contact({ selectedService }: {selectedService:string}) { return <sectio
 
 function Footer() { return <footer className="footer"><div className="footer-main"><div className="footer-brand-block"><a className="brand" href="#home"><span className="brand-mark"><i/><i/><i/></span><span>tantra<span className="brand-light">gen</span>tech</span></a><p>Intelligent digital experiences<br/>and AI-powered solutions.</p></div><div className="footer-column"><span>EXPLORE</span><a href="#services">Services</a><a href="#work">Our work</a><a href="#about">About</a><a href="#contact">Contact</a></div><div className="footer-column"><span>CAPABILITIES</span><a href="#services">Software & web</a><a href="#services">AI & automation</a><a href="#services">Mobile products</a><a href="#services">Data & growth</a></div><div className="footer-column"><span>SAY HELLO</span><a href={`mailto:${email}`}>{email} <ArrowUpRight size={13}/></a><a href="#contact">Start a project <ArrowUpRight size={13}/></a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} TANTRAGENTECH</span><span>AI · SOFTWARE · DIGITAL PRODUCTS</span><a href={`mailto:${email}?subject=Privacy%20or%20terms%20question`}>Privacy & terms <ArrowUpRight size={12}/></a></div><p className="legal-note">Privacy and terms information is available on request and should be reviewed for your business before publication.</p></footer> }
 
-function App() { const [selectedService,setSelectedService]=useState(''); useReveal(); const choose=(v:string)=>{setSelectedService(v);document.querySelector('#contact')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}; return <><Header/><main><Hero/><Services onSelect={choose}/><Projects/><AISection/><Process/><About/><Tech/><Contact selectedService={selectedService}/></main><Footer/></> }
+function App() { const [selectedService,setSelectedService]=useState(''); useReveal(); const choose=(v:string)=>{setSelectedService(v);document.querySelector('#contact')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}; return <><Header/><main><Hero/><Services onSelect={choose}/><Projects/><AISection/><Process/><About/><Tech/><Contact selectedService={selectedService}/></main><Footer/><AskMyAI/></> }
 
 createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>)
 
